@@ -9,9 +9,7 @@ google-generativeai
 absl-py
 
 alembic
-altair
-anaconda-client
-anaconda-navigator
+
 annotated-types
 
 faiss-cpu
@@ -37,11 +35,6 @@ langcodes==3.3.0
 langdetect==1.0.9
 langsmith==0.0.41
 
-
-
-pyFUME==0.2.25
-PyGetWindow==0.0.9
-Pygments==2.16.1
 
 PyPDF2==3.0.1
 pyperclip==1.8.2
