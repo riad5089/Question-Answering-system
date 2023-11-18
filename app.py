@@ -4,7 +4,6 @@ from langchain.vectorstores import FAISS
 from langchain.llms import GooglePalm
 from langchain.document_loaders.csv_loader import CSVLoader
 from langchain.embeddings import HuggingFaceInstructEmbeddings
-from InstructorEmbedding import INSTRUCTOR
 
 from langchain.prompts import PromptTemplate
 from langchain.chains import RetrievalQA
