@@ -35,7 +35,8 @@ vectordb_file_path = "faiss_index"
 # Inside your create_vector_db() function, modify the CSVLoader instantiation:
 def create_vector_db():
     # Load data from FAQ sheet with explicit encoding specification
-    loader = CSVLoader(file_path='codebasics_faqs.csv', source_column="prompt", encoding='ISO-8859-1')
+    loader = CSVLoader(file_path='codebasics_faqs.csv', source_column="prompt", encoding='latin-1')
+
 
     data = loader.load()
 
