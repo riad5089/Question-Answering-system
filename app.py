@@ -20,14 +20,26 @@ llm=GooglePalm(google_api_key=os.environ["google_api_key"],temperature=.6)
 instructor_embeddings = HuggingFaceInstructEmbeddings(model_name="hkunlp/instructor-large")
 vectordb_file_path = "faiss_index"
 
+# def create_vector_db():
+#     # Load data from FAQ sheet
+#     loader = CSVLoader(file_path='codebasics_faqs.csv', source_column="prompt")
+#     data = loader.load()
+
+#     # Create a FAISS instance for vector database from 'data'
+#     vectordb = FAISS.from_documents(documents=data,
+#                                     embedding=instructor_embeddings)
+
+#     # Save vector database locally
+#     vectordb.save_local(vectordb_file_path)
+
+# Inside your create_vector_db() function, modify the CSVLoader instantiation:
 def create_vector_db():
-    # Load data from FAQ sheet
-    loader = CSVLoader(file_path='codebasics_faqs.csv', source_column="prompt")
+    # Load data from FAQ sheet with explicit encoding specification
+    loader = CSVLoader(file_path='codebasics_faqs.csv', source_column="prompt", encoding='utf-8')
     data = loader.load()
 
-    # Create a FAISS instance for vector database from 'data'
-    vectordb = FAISS.from_documents(documents=data,
-                                    embedding=instructor_embeddings)
+    # Create a FAISS instance for the vector database from 'data'
+    vectordb = FAISS.from_documents(documents=data, embedding=instructor_embeddings)
 
     # Save vector database locally
     vectordb.save_local(vectordb_file_path)
